@@ -30,5 +30,4 @@ Route::middleware('auth')->group(function () {
 
   Route::get('follow-list', [PostsController::class, 'index']);
   Route::get('follower-list', [PostsController::class, 'index']);
-
 });
