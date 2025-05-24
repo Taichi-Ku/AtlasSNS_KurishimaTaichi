@@ -34,7 +34,7 @@
     <h1><a href="{{ url('/top') }}"><img src="images/atlas.png"></a></h1>
     <div id="">
         <div id="">
-            <p>〇〇さん</p>
+            <p>{{ $user->username }}さん</p>
         </div>
 
         <!-- アコーディオン1 -->
