@@ -1,22 +1,48 @@
 @charset "utf-8";
-html{
-}
-body{
-}
+
+html {}
+
+body {}
+
 /* header */
-header{
-    background:#186AC9;
+header {
+    background: #186AC9;
 }
 
 /* main content */
-#row{
+#row {
     display: flex;
     flex-flow: row wrap;
 }
-#container{
+
+/* コンテンツ */
+#container {
     flex: 0 0 80%;
 }
-#side-bar{
+
+/* 投稿関連 */
+.post-block {
+    list-style: none;
+    border-bottom: 1px solid #000;
+    display: flex;
+}
+
+.post-content {
+    width: 100%;
+    padding: 15px;
+}
+
+.post-content>div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-name {
+    margin-bottom: 10px;
+}
+
+/* サイドバー */
+#side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
 }

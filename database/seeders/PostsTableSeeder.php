@@ -20,7 +20,7 @@ class PostsTableSeeder extends Seeder
             ['user_id' => '1', 'post' => 'こんにちは'],
             ['user_id' => '1', 'post' => 'こんばんは'],
 
-            ['user_id' => '3', 'post' => 'User2の投稿です。'],
+            ['user_id' => '2', 'post' => 'User2の投稿です。'],
 
             ['user_id' => '3', 'post' => 'User3の投稿です。'],
 
