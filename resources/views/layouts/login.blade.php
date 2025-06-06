@@ -7,7 +7,7 @@
   <!--IEブラウザ対策-->
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="description" content="ページの内容を表す文章" />
-  <title></title>
+  <title>SNS課題</title>
   <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
@@ -52,10 +52,12 @@
     </div>
   </div>
   <footer>
+    <!-- フッターの内容が入る -->
   </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="{{ asset('js/script.js') }}"></script>
   <script src="{{ asset('js/app.js') }}"></script>
-  <script src="JavaScriptファイルのURL"></script>
-  <script src="JavaScriptファイルのURL"></script>
 </body>
 
 </html>

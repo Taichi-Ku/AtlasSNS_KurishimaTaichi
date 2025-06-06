@@ -27,4 +27,19 @@ class PostsController extends Controller
 
         return view('posts.index', compact('user', 'followCount', 'followerCount', 'posts'));
     }
+
+    public function postCreate(Request $request)
+    {
+        $user_id = $request->input('user_id');
+        $post = $request->input('post');
+
+        // echo $post;
+
+        Post::create([
+            'user_id' => $user_id,
+            'post' => $post,
+        ]);
+
+        return redirect('/top');
+    }
 }
