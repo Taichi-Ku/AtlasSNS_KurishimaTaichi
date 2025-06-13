@@ -30,16 +30,39 @@ class PostsController extends Controller
 
     public function postCreate(Request $request)
     {
+        $request->validate([
+            'post' => ['required', 'min:1', 'max:150'],
+        ], [
+            'post.required' => '入力は必須です。',
+            'post.min' => '投稿は1文字以上で入力してください。',
+            'post.max' => '投稿は150文字以内で入力してください。',
+        ]);
+
         $user_id = $request->input('user_id');
         $post = $request->input('post');
-
-        // echo $post;
 
         Post::create([
             'user_id' => $user_id,
             'post' => $post,
         ]);
 
+        return redirect('/top');
+    }
+
+    public function postUpdate(Request $request)
+    {
+        $post_id = $request->input('post-id');
+        $up_post = $request->input('up-post');
+
+        Post::where('id', $post_id)->update([
+            'post' => $up_post
+        ]);
+        return redirect('/top');
+    }
+
+    public function postDelete($id)
+    {
+        Post::where('id', $id)->delete();
         return redirect('/top');
     }
 }

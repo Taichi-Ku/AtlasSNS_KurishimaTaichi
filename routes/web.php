@@ -34,4 +34,17 @@ Route::middleware('auth')->group(function () {
   // 投稿の登録
   Route::post('/post/create', [PostsController::class, 'postCreate']);
 
+  // 投稿の更新
+  Route::post('/post/update', [PostsController::class, 'postUpdate']);
+
+  // 投稿の削除
+  Route::get('/post/{id}/delete', [PostsController::class, 'postDelete']);
+
+  //test あとでちゃんと消す！
+  // Route::get('/post/update', function(){
+  //   echo 'GET!';
+  // });
+  // Route::post('/post/update', function(){
+  //   echo 'POST!';
+  // });
 });
