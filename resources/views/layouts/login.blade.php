@@ -9,6 +9,7 @@
   <meta name="description" content="ページの内容を表す文章" />
   <title>SNS課題</title>
   <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
   <!--スマホ,タブレット対応-->
@@ -41,14 +42,14 @@
           <p>フォロー数</p>
           <p>{{ $followCount }}名</p>
         </div>
-        <p class="btn"><a href="{{ url('/follow-list') }}">フォローリスト</a></p>
+        <p class="btn btn-primary"><a href="{{ url('/follow-list') }}">フォローリスト</a></p>
         <div>
           <p>フォロワー数</p>
           <p>{{ $followerCount }}名</p>
         </div>
-        <p class="btn"><a href="{{ url('/follower-list') }}">フォロワーリスト</a></p>
+        <p class="btn btn-primary"><a href="{{ url('/follower-list') }}">フォロワーリスト</a></p>
       </div>
-      <p class="btn"><a href="{{ url('/search') }}">ユーザー検索</a></p>
+      <p class="btn btn-primary"><a href="{{ url('/search') }}">ユーザー検索</a></p>
     </div>
   </div>
   <footer>

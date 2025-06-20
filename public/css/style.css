@@ -12,6 +12,7 @@ body {}
 
 
 
+
 /* header */
 header {
     background: #186AC9;
@@ -66,6 +67,10 @@ header {
     border-left: 1px solid #727272;
 }
 
+#side-bar a {
+    color: #fff;
+    text-decoration: none;
+}
 
 
 /* 投稿フォーム */
@@ -167,4 +172,32 @@ header {
 .modal_post {
     width: 100%;
     height: 150px;
+}
+
+
+
+/* searchページ */
+.search-form {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    align-items: center;
+    padding-left: 5%;
+    border-bottom: 7.5px solid #ddd;
+}
+
+.search-user-box {
+    display: flex;
+    justify-content: space-around;
+    margin: 24px;
+}
+
+.search-user-box-right {
+    display: flex;
+    align-items: center;
+}
+
+.user-icon {
+    width: 50px;
+    height: 50px;
 }

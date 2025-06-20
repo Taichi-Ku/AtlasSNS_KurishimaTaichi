@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\FollowsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,11 +41,18 @@ Route::middleware('auth')->group(function () {
   // 投稿の削除
   Route::get('/post/{id}/delete', [PostsController::class, 'postDelete']);
 
+  // ユーザーの検索
+  Route::post('/search', [UsersController::class, 'search']);
+
+  // フォロー・アンフォロー機能
+  Route::post('/follow/{user}', [FollowsController::class, 'follow'])->name('follow');
+  Route::delete('/unfollow/{user}', [FollowsController::class, 'unfollow'])->name('unfollow');
+
   //test あとでちゃんと消す！
   // Route::get('/post/update', function(){
   //   echo 'GET!';
   // });
-  // Route::post('/post/update', function(){
+  // Route::post('/search', function(){
   //   echo 'POST!';
   // });
 });
