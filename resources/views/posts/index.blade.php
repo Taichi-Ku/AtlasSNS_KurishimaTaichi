@@ -1,6 +1,6 @@
 <x-login-layout :user="$user" :followCount="$followCount" :followerCount="$followerCount">
 
-<!-- 投稿フォーム -->
+<!-- 投稿フォームのエラー表示 -->
 @if($errors->any())
   <div>
     <ul>
@@ -69,7 +69,7 @@
 
   <div class="modal__bg js-modal-close"></div>
 
-  <form action="/post/update" method="post" class="modal__content">
+  <form action="{{ route('post.update') }}" method="post" class="modal__content">
     @csrf
     <textarea name="up-post" class="modal_post"></textarea>
     <input type="hidden" name="post-id" class="modal_id" value="">

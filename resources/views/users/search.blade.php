@@ -1,7 +1,7 @@
 <x-login-layout :user="$user" :followCount="$followCount" :followerCount="$followerCount">
 
 <div class="search-form">
-  <form action="/search" method="post">
+  <form action="{{ route('user.search') }}" method="post">
     @csrf
     <input type="text" name="keyword" class="" placeholder="ユーザー名">
     <button type="submit" class="">
@@ -17,7 +17,6 @@
         <img class="user-icon" src="{{ asset('images/'. $user_solo->icon_image) }}" alt="{{ $user_solo->username }}さん">
         <div class="user-name">{{ $user_solo->username }}</div>
       </div>
-      <!-- <button class="btn btn-secondary" type="button">フォローする/解除</button> -->
       @auth
         @if ($user->followings->contains($user_solo->id))
           <!-- フォロー解除ボタン -->

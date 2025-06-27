@@ -42,14 +42,14 @@
           <p>フォロー数</p>
           <p>{{ $followCount }}名</p>
         </div>
-        <p class="btn btn-primary"><a href="{{ url('/follow-list') }}">フォローリスト</a></p>
+        <p class="btn btn-primary"><a href="{{ route('follow.list') }}">フォローリスト</a></p>
         <div>
           <p>フォロワー数</p>
           <p>{{ $followerCount }}名</p>
         </div>
-        <p class="btn btn-primary"><a href="{{ url('/follower-list') }}">フォロワーリスト</a></p>
+        <p class="btn btn-primary"><a href="{{ route('follower.list') }}">フォロワーリスト</a></p>
       </div>
-      <p class="btn btn-primary"><a href="{{ url('/search') }}">ユーザー検索</a></p>
+      <p class="btn btn-primary"><a href="{{ route('user.search.form') }}">ユーザー検索</a></p>
     </div>
   </div>
   <footer>

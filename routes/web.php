@@ -22,31 +22,31 @@ use Illuminate\Support\Facades\Route;
 require __DIR__ . '/auth.php';
 
 Route::middleware('auth')->group(function () {
+  // トップ
+  Route::get('top', [PostsController::class, 'index'])->name('post.index');
 
-  Route::get('top', [PostsController::class, 'index']);
+  Route::prefix('post')->name('post.')->group(function () {
+    // 投稿の登録
+    Route::post('/create', [PostsController::class, 'postCreate'])->name('create');
+    // 投稿の更新
+    Route::post('/update', [PostsController::class, 'postUpdate'])->name('update');
+    // 投稿の削除
+    Route::get('/{id}/delete', [PostsController::class, 'postDelete'])->name('delete');
+  });
 
-  Route::get('profile', [ProfileController::class, 'profile']);
-
-  Route::get('search', [UsersController::class, 'search']);
-
-  Route::get('follow-list', [PostsController::class, 'index']);
-  Route::get('follower-list', [PostsController::class, 'index']);
-
-  // 投稿の登録
-  Route::post('/post/create', [PostsController::class, 'postCreate']);
-
-  // 投稿の更新
-  Route::post('/post/update', [PostsController::class, 'postUpdate']);
-
-  // 投稿の削除
-  Route::get('/post/{id}/delete', [PostsController::class, 'postDelete']);
-
-  // ユーザーの検索
-  Route::post('/search', [UsersController::class, 'search']);
+  // ユーザーの検索(上は検索フォームへ、下は検索機能)
+  Route::get('search', [UsersController::class, 'search'])->name('user.search.form');
+  Route::post('/search', [UsersController::class, 'search'])->name('user.search');
 
   // フォロー・アンフォロー機能
   Route::post('/follow/{user}', [FollowsController::class, 'follow'])->name('follow');
   Route::delete('/unfollow/{user}', [FollowsController::class, 'unfollow'])->name('unfollow');
+
+  Route::get('follow-list', [FollowsController::class, 'followList'])->name('follow.list');
+  Route::get('follower-list', [FollowsController::class, 'followerList'])->name('follower.list');
+
+  Route::get('profile', [ProfileController::class, 'profile'])->name('profile.show');
+  Route::get('/users/{user}', [UsersController::class, 'show'])->name('user.show');
 
   //test あとでちゃんと消す！
   // Route::get('/post/update', function(){
