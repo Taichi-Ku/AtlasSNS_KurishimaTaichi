@@ -28,8 +28,8 @@ class UsersController extends Controller
     public function show(User $user)
     {
         $loginUser=Auth::user()->load('followings', 'followers');
-        $followCount = $user->followings()->count();
-        $followerCount = $user->followers()->count();
+        $followCount = $loginUser->followings()->count();
+        $followerCount = $loginUser->followers()->count();
 
         return view('users.show', compact('user', 'loginUser', 'followCount', 'followerCount'));
     }

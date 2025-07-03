@@ -42,9 +42,11 @@ Route::middleware('auth')->group(function () {
   Route::post('/follow/{user}', [FollowsController::class, 'follow'])->name('follow');
   Route::delete('/unfollow/{user}', [FollowsController::class, 'unfollow'])->name('unfollow');
 
+  // フォロー/フォロワーリストの表示
   Route::get('follow-list', [FollowsController::class, 'followList'])->name('follow.list');
   Route::get('follower-list', [FollowsController::class, 'followerList'])->name('follower.list');
 
+  // プロフィール表示
   Route::get('profile', [ProfileController::class, 'profile'])->name('profile.show');
   Route::get('/users/{user}', [UsersController::class, 'show'])->name('user.show');
 

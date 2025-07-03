@@ -27,6 +27,26 @@ class PostsTableSeeder extends Seeder
             ['user_id' => '4', 'post' => 'User4の投稿です。'],
 
             ['user_id' => '5', 'post' => 'User5の投稿です。'],
+
+            ['user_id' => '6', 'post' => 'User6の投稿です。'],
+
+            ['user_id' => '7', 'post' => 'User7の投稿です。'],
+
+            ['user_id' => '8', 'post' => 'User8の投稿です。'],
+
+            ['user_id' => '9', 'post' => 'User9の投稿です。'],
+
+            ['user_id' => '10', 'post' => 'User10の投稿です。'],
+
+            ['user_id' => '11', 'post' => 'User11の投稿です。'],
+
+            ['user_id' => '12', 'post' => 'User12の投稿です。'],
+
+            ['user_id' => '13', 'post' => 'User13の投稿です。'],
+
+            ['user_id' => '14', 'post' => 'User14の投稿です。'],
+
+            ['user_id' => '15', 'post' => 'User15の投稿です。'],
         ]);
     }
 }

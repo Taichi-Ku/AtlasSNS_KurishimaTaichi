@@ -9,26 +9,55 @@ use App\Models\Post;
 
 class FollowsController extends Controller
 {
-    public function followList(){
-        $user = Auth::user();
+    private function getUserSidebarData()
+    {
+        $user = Auth::user()->load(['followings', 'followers']);
 
-        $followCount = $user->followings()->count();
-        $followerCount = $user->followers()->count();
+        return [
+            'user' => $user,
+            'followCount' => $user->followings->count(),
+            'followerCount' => $user->followers->count(),
+        ];
+    }
 
-        $followingIds = $user
-            ->followings()      // フォロー中のテーブル
-            ->pluck('users.id') // ユーザーIDを選択
-            ->toArray();        // 配列に変換
+    // フォロー/フォロワーリストページの表示
+    public function followList()
+    {
+        $sidebar = $this->getUserSidebarData();
+
+        $followingIds = $sidebar['user']->followings->pluck('id')->toArray();
+
         $posts = Post::whereIn('user_id', $followingIds)
-            ->with('user')                  // userテーブルを事前に読み込む。N＋1問題解消
-            ->select('posts.*')             // postsテーブルのカラムだけを選択。(曖昧なidを防ぐ)
-            ->orderBy('created_at', 'desc') // 新しい順番
+            ->with('user')
+            ->select('posts.*')
+            ->orderBy('created_at', 'desc')
             ->get();
 
-        return view('follows.followList', compact('user', 'followCount', 'followerCount', 'posts'));
+        $followings = $sidebar['user']->followings;
+
+        return view('follows.followList', array_merge($sidebar, [
+            'posts' => $posts,
+            'followings' => $followings,
+        ]));
     }
-    public function followerList(){
-        return view('follows.followerList');
+    public function followerList()
+    {
+        $sidebar = $this->getUserSidebarData();
+
+        $followerIds = $sidebar['user']->followers->pluck('id')->toArray();
+
+        $posts = Post::whereIn('user_id', $followerIds)
+            ->with('user')
+            ->select('posts.*')
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        $followers = $sidebar['user']->followers;
+
+        return view('follows.followerList', array_merge($sidebar, [
+            'posts' => $posts,
+            'followers' => $followers,
+        ]));
     }
 
     // フォロー・アンフォロー機能

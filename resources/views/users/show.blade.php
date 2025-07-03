@@ -1,7 +1,18 @@
 <x-login-layout :user="$loginUser" :followCount="$followCount" :followerCount="$followerCount">
-  <div class="user-profile-box">
+  <div class="user-profile-header">
+    <!-- ユーザーアイコン -->
     <img class="user-icon" src="{{ asset('images/' . $user->icon_image) }}" alt="{{ $user->username }}さん">
-    <div class="user-name">{{ $user->username }}</div>
+    <!-- ユーザー情報 -->
+    <table class="user-info">
+      <tr>
+        <td>ユーザー名</td>
+        <td>{{ $user->username }}</td>
+      </tr>
+      <tr>
+        <td>自己紹介</td>
+        <td>{{ $user->bio }}</td>
+      </tr>
+    </table>
 
     <!-- フォローボタン -->
     @auth
