@@ -14,7 +14,11 @@ use App\Models\Post;
 class ProfileController extends Controller
 {
     public function profile(){
-        return view('profiles.profile');
+        $user = Auth::user();
+        $followCount = $user->followings()->count();
+        $followerCount = $user->followers()->count();
+
+        return view('profiles.profile', compact('user', 'followCount', 'followerCount'));
     }
 
     public function otherProfile(User $user)
