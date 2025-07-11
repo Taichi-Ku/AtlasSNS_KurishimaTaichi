@@ -65,11 +65,11 @@ class FollowsController extends Controller
     {
         // Auth::user()->followings()->attach($user->id);
         Auth::user()->followings()->syncWithoutDetaching([$user->id]);
-        return redirect('/search');
+        return redirect()->back();
     }
     public function unfollow(User $user)
     {
         Auth::user()->followings()->detach($user->id);
-        return redirect('/search');
+        return redirect()->back();
     }
 }

@@ -214,3 +214,20 @@ header {
 .follow-list-header-icon {
     display: flex;
 }
+
+
+
+/* その他のユーザープロフィール画面 */
+.user-profile-header {
+    padding: 20px 50px;
+    display: flex;
+    border-bottom: 7.5px solid #bbb;
+}
+
+.user-info {
+    width: 75%;
+}
+
+.user-info td {
+    width: 75%;
+}

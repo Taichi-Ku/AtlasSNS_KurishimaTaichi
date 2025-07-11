@@ -24,13 +24,4 @@ class UsersController extends Controller
 
         return view('users.search', compact('user', 'followCount', 'followerCount', 'users'));
     }
-
-    public function show(User $user)
-    {
-        $loginUser=Auth::user()->load('followings', 'followers');
-        $followCount = $loginUser->followings()->count();
-        $followerCount = $loginUser->followers()->count();
-
-        return view('users.show', compact('user', 'loginUser', 'followCount', 'followerCount'));
-    }
 }

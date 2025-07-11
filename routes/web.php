@@ -48,7 +48,7 @@ Route::middleware('auth')->group(function () {
 
   // プロフィール表示
   Route::get('profile', [ProfileController::class, 'profile'])->name('profile.show');
-  Route::get('/users/{user}', [UsersController::class, 'show'])->name('user.show');
+  Route::get('other-profile/{user}', [ProfileController::class, 'otherProfile'])->name('other-profile.show');
 
   //test あとでちゃんと消す！
   // Route::get('/post/update', function(){

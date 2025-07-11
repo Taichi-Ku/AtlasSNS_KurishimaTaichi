@@ -5,11 +5,11 @@
     <!-- ユーザー情報 -->
     <table class="user-info">
       <tr>
-        <td>ユーザー名</td>
+        <th>ユーザー名</th>
         <td>{{ $user->username }}</td>
       </tr>
       <tr>
-        <td>自己紹介</td>
+        <th>自己紹介</th>
         <td>{{ $user->bio }}</td>
       </tr>
     </table>
@@ -32,4 +32,24 @@
       @endif
     @endauth
   </div>
+
+  <ul>
+    @foreach ($posts as $post)
+      <li class="post-block">
+        <a href="{{ route('other-profile.show', $post->user->id) }}">
+          <img src="{{ asset('images/'. $post->user->icon_image) }}" alt="{{ $post->user->username }}さん">
+        </a>
+        <div class="post-content">
+          <div>
+            <div class="post-name">{{ $post->user->username }}さん</div>
+            <div>{{ $post->created_at }}</div>
+          </div>
+          <div>
+            <div>{{ $post->post }}</div>
+          </div>
+        </div>
+      </li>
+    @endforeach
+  </ul>
+
 </x-login-layout>

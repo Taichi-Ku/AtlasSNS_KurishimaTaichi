@@ -1,5 +1,6 @@
 <div id="head">
-    <h1><a href="{{ url('/top') }}"><img src="images/atlas.png"></a></h1>
+    <!-- <h1><a href="{{ url('/top') }}"><img src="images/atlas.png"></a></h1> -->
+    <h1><a href="{{ url('/top') }}"><img src="{{ asset('images/atlas.png') }}"></a></h1>
     <div id="">
         <div id="">
             <p>{{ $user->username }}さん</p>
