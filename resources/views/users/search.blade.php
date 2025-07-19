@@ -14,7 +14,7 @@
   @foreach ($users as $user_solo)
     <div class="search-user-box">
       <div class="search-user-box-right">
-        <img class="user-icon" src="{{ asset('images/'. $user_solo->icon_image) }}" alt="{{ $user_solo->username }}さん">
+        <img class="user-icon" src="{{ asset('storage/'. $user_solo->icon_image) }}" alt="{{ $user_solo->username }}さん">
         <div class="user-name">{{ $user_solo->username }}</div>
       </div>
       @auth

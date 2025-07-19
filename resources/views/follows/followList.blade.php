@@ -6,7 +6,7 @@
     <div class="follow-list-header-icon">
       @foreach($followings as $followUser)
         <a href="{{ route('other-profile.show', $followUser) }}">
-          <img src="{{ asset('images/'. $followUser->icon_image) }}" alt="{{ $followUser->username }}">
+          <img src="{{ asset('storage/'. $followUser->icon_image) }}" alt="{{ $followUser->username }}">
         </a>
       @endforeach
     </div>
@@ -16,7 +16,7 @@
     @foreach ($posts as $post)
       <li class="post-block">
         <a href="{{ route('other-profile.show', $post->user->id) }}">
-          <img src="{{ asset('images/'. $post->user->icon_image) }}" alt="{{ $post->user->username }}さん">
+          <img src="{{ asset('storage/'. $post->user->icon_image) }}" alt="{{ $post->user->username }}さん">
         </a>
         <div class="post-content">
           <div>

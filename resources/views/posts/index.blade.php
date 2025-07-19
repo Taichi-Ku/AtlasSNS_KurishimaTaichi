@@ -14,7 +14,7 @@
 <div class="post-form">
 
   <div class="user-icon">
-    <img src="{{ asset('images/' . $user->icon_image) }}" alt="ログインユーザーアイコン">
+    <img src="{{ asset('storage/' . $user->icon_image) }}" alt="ログインユーザーアイコン">
   </div>
 
   {{ Form::open(['url' => '/post/create', 'class' => 'post-form-body']) }}
@@ -39,7 +39,7 @@
   <ul>
     @foreach ($posts as $post)
       <li class="post-block">
-        <figure><img src="{{ asset('images/'. $post->user->icon_image) }}" alt="{{ $post->user->username }}さん"></figure>
+        <figure><img src="{{ asset('storage/'. $post->user->icon_image) }}" alt="{{ $post->user->username }}さん"></figure>
         <div class="post-content">
           <div>
             <div class="post-name">{{ $post->user->username }}さん</div>

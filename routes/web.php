@@ -46,9 +46,10 @@ Route::middleware('auth')->group(function () {
   Route::get('follow-list', [FollowsController::class, 'followList'])->name('follow.list');
   Route::get('follower-list', [FollowsController::class, 'followerList'])->name('follower.list');
 
-  // プロフィール表示
+  // プロフィール
   Route::get('profile', [ProfileController::class, 'profile'])->name('profile.show');
   Route::get('other-profile/{user}', [ProfileController::class, 'otherProfile'])->name('other-profile.show');
+  Route::post('profile-update', [ProfileController::class, 'profileUpdate'])->name('profile.update');
 
   //test あとでちゃんと消す！
   // Route::get('/post/update', function(){

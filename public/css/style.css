@@ -231,3 +231,18 @@ header {
 .user-info td {
     width: 75%;
 }
+
+
+
+/* ログインユーザーのプロフィール画面 */
+.profile-box {
+    display: flex;
+    padding: 25px;
+}
+
+.form-flex {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+    margin: 10px 20px;
+}

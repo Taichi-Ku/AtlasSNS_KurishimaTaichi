@@ -1,7 +1,7 @@
 <x-login-layout :user="$loginUser" :followCount="$followCount" :followerCount="$followerCount">
   <div class="user-profile-header">
     <!-- ユーザーアイコン -->
-    <img class="user-icon" src="{{ asset('images/' . $user->icon_image) }}" alt="{{ $user->username }}さん">
+    <img class="user-icon" src="{{ asset('storage/' . $user->icon_image) }}" alt="{{ $user->username }}さん">
     <!-- ユーザー情報 -->
     <table class="user-info">
       <tr>
@@ -37,7 +37,7 @@
     @foreach ($posts as $post)
       <li class="post-block">
         <a href="{{ route('other-profile.show', $post->user->id) }}">
-          <img src="{{ asset('images/'. $post->user->icon_image) }}" alt="{{ $post->user->username }}さん">
+          <img src="{{ asset('storage/'. $post->user->icon_image) }}" alt="{{ $post->user->username }}さん">
         </a>
         <div class="post-content">
           <div>
