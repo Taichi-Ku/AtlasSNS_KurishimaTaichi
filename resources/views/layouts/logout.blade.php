@@ -7,7 +7,7 @@
         <meta name="description" content="ページの内容を表す文章" />
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title></title>
+        <title>SNS課題</title>
 
         <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -23,13 +23,16 @@
         <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     </head>
     <body>
-        <header>
-            <h1><img src="images/atlas.png"></h1>
-            <p>Social Network Service</p>
-        </header>
-        <div id="container">
-            {{ $slot }}
+        <div class="center-wrapper">
+            <header>
+                <h1><img src="images/atlas.png"></h1>
+                <h2>Social Network Service</h2>
+            </header>
+            <div id="container">
+                {{ $slot }}
+            </div>
         </div>
+
         <script src="{{ asset('js/app.js') }}"></script>
         <script src="JavaScriptファイルのURL"></script>
         <script src="JavaScriptファイルのURL"></script>

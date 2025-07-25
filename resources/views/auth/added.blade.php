@@ -1,16 +1,22 @@
 <x-logout-layout>
-  <div id="clear">
+  <div class="form-bg">
     <!-- ユーザー名を表示 -->
-    @if (session('registered_username'))
-      <h1>{{ session('registered_username') }}さん</h1>
-    @else
-      <h1>ゲストさん</h1>
-    @endif
+    <div class="add-top">
+      @if (session('registered_username'))
+        <p>{{ session('registered_username') }}さん</p>
+      @else
+        <p>ゲストさん</p>
+      @endif
+      <p>ようこそ！AtlasSNSへ！</p>
+    </div>
 
-    <p>ようこそ！AtlasSNSへ！</p>
-    <p>ユーザー登録が完了しました。</p>
-    <p>早速ログインをしてみましょう。</p>
+    <div class="add-bottom">
+      <p>ユーザー登録が完了しました。</p>
+      <p>早速ログインをしてみましょう。</p>
+    </div>
 
-    <p class="btn"><a href="login">ログイン画面へ</a></p>
+    <div class="btn-center">
+      <a href="login" class="btn btn-danger">ログイン画面へ</a>
+    </div>
   </div>
 </x-logout-layout>

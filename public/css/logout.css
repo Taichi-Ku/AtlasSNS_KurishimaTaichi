@@ -1,10 +1,125 @@
 @charset "UTF-8";
 
-html{
+html {
     height: 100%;
 }
 
-body{
-    height: 100%;
-    background: #186AC9;
+body {
+    font-size: 20px;
+    color: #fff;
+    background-image: linear-gradient(0deg,
+            #FEE12D 0%,
+            #6EC5FF 50%,
+            #186AC9 100%);
+}
+
+.center-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+header {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 0;
+}
+
+h1 img {
+    width: 40%;
+    height: auto;
+}
+
+h2 {
+    font-size: 45px;
+    font-weight: bolder;
+    margin: 0px auto 40px;
+}
+
+
+
+/* フォーム */
+#container {
+    display: flex;
+    justify-content: center;
+}
+
+.form-bg {
+    width: 400px;
+    padding: 40px 35px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+}
+
+form p {
+    text-align: center;
+}
+
+.form-title {
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+.login-form {
+    margin-bottom: 30px;
+}
+
+.login-form label {
+    font-weight: normal;
+    font-size: 18px;
+}
+
+input {
+    display: block;
+}
+
+.login-form input {
+    color: #000;
+    width: 100%;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.form-btn {
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+.btn {
+    font-size: 24px;
+    padding: 5px 40px;
+}
+
+form a {
+    font-size: 18px;
+    text-decoration: none;
+    color: #fff;
+    text-decoration: underline;
+}
+
+.add-top {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.add-top p {
+    font-weight: bold;
+    margin: 0;
+}
+
+.add-bottom {
+    margin-left: 10px;
+    margin-bottom: 30px;
+}
+
+.add-bottom p {
+    margin: 0;
+}
+
+.btn-center {
+    text-align: center;
 }
