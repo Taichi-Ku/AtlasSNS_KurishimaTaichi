@@ -19,11 +19,13 @@ class PostsController extends Controller
             ->pluck('users.id') // ユーザーIDを選択
             ->toArray();        // 配列に変換
         $followingIds[] = $user->id; // 自分のIDも追加！
-        $posts = Post::whereIn('user_id', $followingIds)
+        $posts = Post::
+        whereIn('user_id', $followingIds)
             ->with('user')                  // userテーブルを事前に読み込む。N＋1問題解消
             ->select('posts.*')             // postsテーブルのカラムだけを選択。(曖昧なidを防ぐ)
             ->orderBy('created_at', 'desc') // 新しい順番
             ->get();
+        // dd($posts);
 
         return view('posts.index', compact('user', 'followCount', 'followerCount', 'posts'));
     }

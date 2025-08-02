@@ -1,3 +1,4 @@
+
 function toggleAccordion(button) {
   const content = button.parentElement.nextElementSibling;
   const arrow = button.querySelector('.accordion-arrow');

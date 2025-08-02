@@ -20,8 +20,9 @@ class UsersController extends Controller
             ->when($keyword, function($query, $keyword) {
                 return $query->where('username', 'like', "%{$keyword}%");
             })
+            ->orderBy('created_at', 'desc')
             ->get();
 
-        return view('users.search', compact('user', 'followCount', 'followerCount', 'users'));
+        return view('users.search', compact('user', 'followCount', 'followerCount', 'users', 'keyword'));
     }
 }

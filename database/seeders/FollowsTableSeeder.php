@@ -39,6 +39,19 @@ class FollowsTableSeeder extends Seeder
             ['following_id' => '3', 'followed_id' => '5'],
 
             ['following_id' => '4', 'followed_id' => '5'],
+
+
+            ['following_id' => '5', 'followed_id' => '1'],
+            ['following_id' => '6', 'followed_id' => '1'],
+            ['following_id' => '7', 'followed_id' => '1'],
+            ['following_id' => '8', 'followed_id' => '1'],
+            ['following_id' => '9', 'followed_id' => '1'],
+            ['following_id' => '10', 'followed_id' => '1'],
+            ['following_id' => '11', 'followed_id' => '1'],
+            ['following_id' => '12', 'followed_id' => '1'],
+            ['following_id' => '13', 'followed_id' => '1'],
+            ['following_id' => '14', 'followed_id' => '1'],
+            ['following_id' => '15', 'followed_id' => '1'],
         ]);
     }
 }

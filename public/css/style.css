@@ -1,16 +1,46 @@
 @charset "utf-8";
 
-html {}
-
-body {}
-
-/* 共通 */
-/* これをどうにかして消したい */
-.img-size {
-    width: 50px;
-    height: 50px;
+html {
+    font-size: 16px;
 }
 
+body {
+    background-color: #fff;
+}
+
+/* 共通 */
+p {
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+}
+
+.user-icon-size {
+    width: 40px;
+    height: 40px;
+}
+
+.action-img-size {
+    width: 35px;
+    height: 35px;
+}
+
+.separate-page-line {
+    border-bottom: 7.5px solid #ddd;
+}
+
+.none-button-bg {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.btn {
+    width: 9rem;
+}
 
 /* header */
 #head {
@@ -18,7 +48,8 @@ body {}
     justify-content: space-between;
     align-items: center;
     background: #186AC9;
-    padding: 10px 30px;
+    padding: 20px 30px;
+    position: relative;
 }
 
 .head-left img {
@@ -29,16 +60,10 @@ body {}
     display: flex;
     align-items: center;
     gap: 30px;
-    position: relative;
-}
-
-.head-user-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
 }
 
 .username {
+    font-size: 20px;
     white-space: nowrap;
     color: #fff;
 }
@@ -67,24 +92,45 @@ body {}
 
 .accordion-content {
     position: absolute;
-    top: 60px;
-    right: 20px;
+    top: 100%;
+    right: 0;
+    width: 20%;
     background: white;
-    color: black;
     border: 1px solid #ccc;
-    padding: 10px;
     display: none;
     z-index: 1000;
 }
 
-.head-right img {
-    width: 50px;
-    height: 50px;
+.accordion-content ul {
+    padding: 0;
+    margin: 0;
 }
+
+.accordion-content li {
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.accordion-content a {
+    display: block;
+    padding: 30px 0;
+    font-size: 20px;
+    text-decoration: none;
+    color: #777;
+}
+
+.accordion-content a:hover {
+    color: #fff;
+    background-color: #01297E;
+}
+
 
 
 /* main content */
 #row {
+    width: 100%;
     display: flex;
     flex-flow: row wrap;
 }
@@ -92,17 +138,46 @@ body {}
 /* コンテンツ */
 #container {
     flex: 0 0 80%;
+    border-right: 1px solid #000;
 }
 
 /* サイドバー */
 #side-bar {
-    flex: 0 0 19%;
-    border-left: 1px solid #727272;
+    flex: 0 0 20%;
+    height: 100vh;
+}
+
+#side-bar>* {
+    margin-top: 20px;
 }
 
 #side-bar a {
     color: #fff;
     text-decoration: none;
+    display: block;
+}
+
+#side-bar>a {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.side-bar-top {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.side-bar-top>* {
+    margin: 0 20px 20px 20px;
+}
+
+.side-bar-top div {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 30%;
+}
+
+.side-bar-top a {
+    margin-left: auto;
 }
 
 
@@ -110,65 +185,95 @@ body {}
 .post-form {
     display: flex;
     align-items: flex-start;
-    padding: 25px 100px;
-    border-bottom: 7.5px solid #bbb;
-}
-
-.user-icon {
-    margin-right: 10px;
-}
-
-.user-icon img {
-    width: 90%;
-    height: 90%;
+    padding: 2.5% 15% 2.5% 5%;
+    gap: 1%;
 }
 
 .post-form-body {
     display: flex;
     align-items: flex-end;
+    width: 100%;
 }
 
 .post-textarea {
+    width: 100%;
+    height: 100px;
     border: none;
-    margin-right: 10px;
-    padding: 6px;
-    font-size: 14px;
-    line-height: 1.4;
 }
-
-.post-submit-button {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-}
-
 
 
 /* 投稿 */
+.post-area ul {
+    padding: 0;
+}
+
 .post-block {
     list-style: none;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     display: flex;
-    padding: 20px 20px 20px 100px;
+    padding: 15px 0;
+}
+
+.post-block .user-icon-size {
+    margin: 0 10px 0 7.5%;
 }
 
 .post-content {
     width: 100%;
-    padding: 15px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.post-content>div {
-    /* 名前と日付に対して設定 */
+.post-header {
     display: flex;
     justify-content: space-between;
 }
 
-.post-name {
-    margin-bottom: 10px;
+.post-body {
+    margin-top: 5px;
 }
 
+.post-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+}
 
+.delete-btn {
+    position: relative;
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+}
+
+.delete-btn img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+}
+
+.trash-default {
+    opacity: 1;
+    z-index: 1;
+}
+
+.trash-hover {
+    opacity: 0;
+    z-index: 2;
+}
+
+.delete-btn:hover .trash-hover {
+    opacity: 1;
+}
+
+.delete-btn:hover .trash-default {
+    opacity: 0;
+}
 
 /* モーダル */
 .my-modal {
@@ -181,7 +286,7 @@ body {}
 }
 
 .modal__bg {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.6);
     height: 100vh;
     position: absolute;
     width: 100%;
@@ -194,8 +299,9 @@ body {}
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 75%;
-    /* ォームのスタイルを追加 */
+    width: 50%;
+    border-radius: 7.5px;
+    /* フォームのスタイルを追加 */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -208,15 +314,17 @@ body {}
 }
 
 
-
 /* searchページ */
 .search-form {
     width: 100%;
-    height: 25%;
+    height: 100px;
     display: flex;
     align-items: center;
-    padding-left: 5%;
-    border-bottom: 7.5px solid #ddd;
+    padding-left: 10%;
+}
+
+.search-keyword {
+    margin-left: 340px;
 }
 
 .search-user-box {
@@ -225,14 +333,10 @@ body {}
     margin: 24px;
 }
 
-.search-user-box-right {
+.search-user-box-left {
     display: flex;
     align-items: center;
-}
-
-.user-icon {
-    width: 50px;
-    height: 50px;
+    gap: 10px;
 }
 
 
@@ -240,42 +344,77 @@ body {}
 /* フォロー/フォロワーリストページ */
 .follow-list-header {
     display: flex;
-    padding: 20px;
-    border-bottom: 7.5px solid #ddd;
+    padding: 30px 220px 30px 70px;
+}
+
+.follow-list-header h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    white-space: nowrap;
 }
 
 .follow-list-header-icon {
+    margin-left: 2%;
     display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
 }
 
 
 
 /* その他のユーザープロフィール画面 */
 .user-profile-header {
-    padding: 20px 50px;
+    padding: 3% 1% 3% 7%;
     display: flex;
-    border-bottom: 7.5px solid #bbb;
+}
+
+.user-profile-info-container {
+    position: relative;
+    width: 100%;
+}
+
+.user-profile-header .user-icon-size {
+    margin-right: 15px;
 }
 
 .user-info {
     width: 75%;
+    line-height: 2.5rem;
 }
 
 .user-info td {
     width: 75%;
 }
 
+.post-block>a {
+    margin: 0 10px 0 7.5%;
+}
+
+.follow-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+
 
 
 /* ログインユーザーのプロフィール画面 */
 .profile-box {
     display: flex;
-    padding: 25px;
+    justify-content: center;
+    margin-top: 7.5%;
+    gap: 20px;
 }
 
 .form-flex {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 10px;
-    margin: 10px 20px;
+    gap: 50px;
+    margin-bottom: 30px;
+}
+
+.profile-box .btn {
+    display: block;
+    margin: 20px auto;
 }

@@ -1,20 +1,23 @@
 <x-login-layout :user="$user" :followCount="$followCount" :followerCount="$followerCount">
 
-<div class="search-form">
+<div class="search-form separate-page-line">
   <form action="{{ route('user.search') }}" method="post">
     @csrf
     <input type="text" name="keyword" class="" placeholder="ユーザー名">
-    <button type="submit" class="">
-      <img src="{{ asset('images/search.png') }}" alt="検索" class="img-size">
+    <button type="submit" class="none-button-bg">
+      <img src="{{ asset('images/search.png') }}" alt="検索" class="action-img-size">
     </button>
   </form>
+  @if(!empty($keyword))
+  <p class="search-keyword">検索ワード：{{ $keyword }}</p>
+  @endif
 </div>
 
 <div class="search-content">
   @foreach ($users as $user_solo)
     <div class="search-user-box">
-      <div class="search-user-box-right">
-        <img class="user-icon" src="{{ asset('storage/'. $user_solo->icon_image) }}" alt="{{ $user_solo->username }}さん">
+      <div class="search-user-box-left">
+        <img class="user-icon-size" src="{{ asset('storage/'. $user_solo->icon_image) }}" alt="{{ $user_solo->username }}さん">
         <div class="user-name">{{ $user_solo->username }}</div>
       </div>
       @auth

@@ -12,7 +12,7 @@
 <x-login-layout :user="$user" :followCount="$followCount" :followerCount="$followerCount">
 
 <div class="profile-box">
-  <img class="user-icon" src="{{ asset('storage/'. $user->icon_image) }}" alt="{{ $user->username }}さん">
+  <img class="user-icon-size" src="{{ asset('storage/'. $user->icon_image) }}" alt="{{ $user->username }}さん">
 
   <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
     @csrf
